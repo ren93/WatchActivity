@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.qtfreet.watchactivity">
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.qtfreet.watchactivity.MainActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleInstance" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.qtfreet.watchactivity.WatchingService"
+            android:enabled="@bool/use_watching_service" />
+        <service
+            android:name="com.qtfreet.watchactivity.WatchingAccessibilityService"
+            android:description="@string/app_name"
+            android:enabled="@bool/use_accessibility_service"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility" />
+        </service>
+
+        <receiver android:name="com.qtfreet.watchactivity.NotificationActionReceiver">
+            <intent-filter>
+                <action android:name="com.qtfreet.watchactivity.ACTION_NOTIFICATION_RECEIVER" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+
+</manifest>
