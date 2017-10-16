@@ -1,16 +1,11 @@
 package com.qtfreet.watchactivity;
 
-import android.app.ActivityManager;
-import android.app.ActivityManager.RunningTaskInfo;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build.VERSION;
 import android.support.v4.app.NotificationCompat;
-
-import java.util.List;
 
 public class NotificationActionReceiver extends BroadcastReceiver {
 	public static PendingIntent pendingIntent(Context context, int i) {
@@ -51,13 +46,6 @@ public class NotificationActionReceiver extends BroadcastReceiver {
 		case 1:
 			showNotification(context, false);
 			DefaultSharedPreferences.save(context, true);
-			if (VERSION.SDK_INT >= 21) {
-				ViewWindow.showView(context, null);
-				return;
-			}
-			List runningTasks = ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE)).getRunningTasks(1);
-			ViewWindow.showView(context, ((RunningTaskInfo) runningTasks.get(0)).topActivity.getPackageName() + "\n"
-					+ ((RunningTaskInfo) runningTasks.get(0)).topActivity.getClassName());
 			return;
 		case 2:
 			ViewWindow.removeView();

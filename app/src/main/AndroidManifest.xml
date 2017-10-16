@@ -3,7 +3,7 @@
     package="com.qtfreet.watchactivity">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
         android:allowBackup="true"
@@ -21,13 +21,11 @@
             </intent-filter>
         </activity>
 
-        <service
-            android:name="com.qtfreet.watchactivity.WatchingService"
-            android:enabled="@bool/use_watching_service" />
+
         <service
             android:name="com.qtfreet.watchactivity.WatchingAccessibilityService"
             android:description="@string/app_name"
-            android:enabled="@bool/use_accessibility_service"
+            android:enabled="true"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />

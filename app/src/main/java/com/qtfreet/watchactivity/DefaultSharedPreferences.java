@@ -5,7 +5,7 @@ import android.preference.PreferenceManager;
 
 public class DefaultSharedPreferences {
     public static void save(Context context, boolean isshow) {
-        PreferenceManager.getDefaultSharedPreferences(context).edit().putBoolean("is_show_window", isshow).commit();
+        PreferenceManager.getDefaultSharedPreferences(context).edit().putBoolean("is_show_window", isshow).apply();
     }
 
     public static boolean read(Context context) {
