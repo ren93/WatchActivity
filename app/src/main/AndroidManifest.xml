@@ -38,7 +38,7 @@
 
         <receiver android:name="com.qtfreet.watchactivity.NotificationActionReceiver">
             <intent-filter>
-                <action android:name="com.qtfreet.watchactivity.ACTION_NOTIFICATION_RECEIVER" />
+                <action android:name="ACTION_NOTIFICATION_RECEIVER" />
             </intent-filter>
         </receiver>
     </application>

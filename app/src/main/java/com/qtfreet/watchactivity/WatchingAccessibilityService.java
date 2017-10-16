@@ -27,7 +27,7 @@ public class WatchingAccessibilityService extends AccessibilityService {
 
     public boolean onUnbind(Intent intent) {
         ViewWindow.removeView();
-        NotificationActionReceiver.initNotification(this);
+        NotificationActionReceiver.removeNotification(this);
         return super.onUnbind(intent);
     }
 

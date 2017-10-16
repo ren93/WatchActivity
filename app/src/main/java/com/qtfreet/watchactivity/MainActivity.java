@@ -71,7 +71,7 @@ public class MainActivity extends Activity implements OnCheckedChangeListener, O
     protected void onResume() {
         super.onResume();
         refrehStatus();
-        NotificationActionReceiver.initNotification(this);
+        NotificationActionReceiver.removeNotification(this);
     }
 
     protected void onPause() {
